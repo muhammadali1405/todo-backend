@@ -5,7 +5,7 @@ Dependencies:
     Mongodb
     Maven
 
-Start Mongodb service
+Start Mongodb service then
 Steps:
 
 First of all Clone the project
@@ -22,4 +22,3 @@ then
         mvn spring-boot:run
 
 
-Type the task, click on the "+" button on the left , it will add the task. You can mark completed by checking the checkbox of any task and can delete any task by pressing the delete icon of any task.
