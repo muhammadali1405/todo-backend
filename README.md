@@ -14,7 +14,7 @@ First of all Clone the project
 
 then
 
-    cd task-management-app
+    cd todo-backend
 
 then
 
