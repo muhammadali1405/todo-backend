@@ -15,10 +15,4 @@ First of all Clone the project
 then
 
     cd todo-backend
-
-then
-
-    cd Backend
-        mvn spring-boot:run
-
-
+    mvn spring-boot:run
