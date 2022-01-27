@@ -1,54 +1,25 @@
-# todo-backend
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+task-management-app
+Dependencies:
 
-name: Build and deploy JAR app to Azure Web App - mytodo-app
+    Java
+    Mongodb
+    Maven
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+Start Mongodb service
+Steps:
 
-jobs:
-  build:
-    runs-on: windows-latest
+First of all Clone the project
 
-    steps:
-    - uses: actions/checkout@v2
+    git clone https://github.com/muhammadali1405/todo-backend.git
 
-    - name: Set up Java version
-      uses: actions/setup-java@v1
-      with:
-        java-version: '8'
+then
 
-    - name: Build with Maven
-      run: mvn clean install
+    cd task-management-app
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
-      with:
-        name: java-app
-        path: '${{ github.workspace }}/target/*.jar'
+then
 
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    cd Backend
+        mvn spring-boot:run
 
-    steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v2
-      with:
-        name: java-app
 
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'mytodo-app'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a577c4f63b934312a3235d3e16b8a586 }}
-        package: '*.jar'
+Type the task, click on the "+" button on the left , it will add the task. You can mark completed by checking the checkbox of any task and can delete any task by pressing the delete icon of any task.
